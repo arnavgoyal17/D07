@@ -20,8 +20,17 @@ def cumulative_sum(inputList):
 		sumList = sumList + int(inputList[index])
 		inputList[index] = sumList
 
+	return inputList
+
 def main():
-	pass
+    list_1 = [1, 2, 3]
+    list_2 = [1, 3, 6]
+    list_3 = [1]
+    list_4 = [0, 0, 0, 1]
+    print(cumulative_sum(list_1))  # [1, 3, 6]
+    print(cumulative_sum(list_2))  # [1, 4, 10]
+    print(cumulative_sum(list_3))  # [1]
+    print(cumulative_sum(list_4))  # [0, 0, 0, 1]
 
 if __name__ == '__main__':
 	main()

@@ -3,7 +3,7 @@
 # Ex. ['apple', ['bear'], 'cat']
 # Verify you've tested w/ various nestings.
 # In your final submission:
-#  - Do not print anything extraneous!
+#  - Do not print(anything extraneous!
 #  - Do not put anything but pass in main()
 
 # Imports
@@ -20,10 +20,21 @@ def capitalize_nested(inputList):
 		if(type(inputList[index]) == list):
 			capitalize_nested(inputList[index])
 		else:
-			inputList[index] = inputList[index].upper()
+			inputList[index] = inputList[index].capitalize()
+
+	return inputList
 
 def main():
-	pass
+    list_1 = ['apple', ['bear'], 'cat', 'doggy', ['elbow', 'fin', 'garage']]
+    list_2 = [[[['apple']], 'bear', 'cat', 'doggy', 
+             ['elbow','fin','garage','house','indigo']], 'jump']
+    list_3 = []
+    list_4 = ["doggy"]
+    list_4 = [[[[[[["this"]]]]]]]
+    print(capitalize_nested(list_1))
+    print(capitalize_nested(list_2))
+    print(capitalize_nested(list_3))
+    print(capitalize_nested(list_4))
 
 if __name__ == '__main__':
 	main()
