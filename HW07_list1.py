@@ -15,6 +15,8 @@
 # It's ok if you do not complete all the functions, and there
 # are some additional functions to try in list2.py.
 
+# Imports
+import copy
 
 # A. match_ends
 # Given a list of strings, return the count of the number of
@@ -22,8 +24,14 @@
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-    # +++your code here+++
-    return
+    nCount = 0
+
+    for strings in words:
+        if(len(strings) >= 2):
+            if(strings[0] == strings[len(strings) - 1]):
+                nCount += 1
+
+    return nCount
 
 
 # B. front_x
@@ -34,8 +42,18 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-    # +++your code here+++
-    return
+    xList = []
+    otherList = []
+
+    for strings in words:
+        if(strings[0].lower() == 'x'):
+            xList.append(strings)
+        else:
+            otherList.append(strings)
+
+    xList.sort()
+    otherList.sort()
+    return xList + otherList
 
 
 # C. sort_last
@@ -45,8 +63,20 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-    # +++your code here+++
-    return
+
+    copyTuple = copy.deepcopy(tuples)
+    index = 0
+    listSort = []
+    
+    for items in tuples:
+        listSort.append([items[len(items) - 1], int(index)])
+        index += 1
+
+    listSort.sort()
+    for n in range(0, len(tuples)):
+        tuples[n] = copyTuple[listSort[n][1]]
+
+    return tuples
 
 
 # Simple provided test() function used in main() to print
@@ -56,7 +86,7 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('%s got: %s expected: %s'.format(prefix, repr(got), repr(expected)))
+    print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
 
 
 # Calls the above functions with interesting inputs.

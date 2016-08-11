@@ -6,3 +6,22 @@
 # In your final submission:
 #  - Do not print anything extraneous!
 #  - Do not put anything but pass in main()
+
+# Imports
+
+# Body
+def cumulative_sum(inputList):
+	sumList = 0
+
+	# get the lenght of the list
+	lenList = len(inputList)
+
+	for index in range(0, lenList):
+		sumList = sumList + int(inputList[index])
+		inputList[index] = sumList
+
+def main():
+	pass
+
+if __name__ == '__main__':
+	main()
